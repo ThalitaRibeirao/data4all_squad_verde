@@ -58,7 +58,6 @@ while(True):
             users[i][3] = input('Insira o endereço: ')
         else: 
             print('Digite uma opção válida!')
-        print(users)
     
     elif(opcao=='4'):
         pass
