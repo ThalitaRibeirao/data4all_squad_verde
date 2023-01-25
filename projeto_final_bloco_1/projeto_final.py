@@ -38,8 +38,7 @@ while(True):
     elif(opcao=='3'):
         # Recebendo o ID do Usuário
         while(True):
-            print('Insira o ID do Usuário:')
-            user_id = input()
+            user_id = input('Insira o ID do Usuário: ')
             if(not user_id.isnumeric()):
                 print("Insira um ID válido")
             else: break
