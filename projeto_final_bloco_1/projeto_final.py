@@ -36,14 +36,15 @@ while(True):
     elif(opcao=='2'):
         pass
     elif(opcao=='3'):
-
+        # Recebendo o ID do Usuário
         while(True):
             print('Insira o ID do Usuário:')
             user_id = input()
             if(not user_id.isnumeric()):
                 print("Insira um ID válido")
             else: break
-            
+        
+        # Encontrando o Usuário 
         user_founded = False
         for i in range(len(users)):
             if (users[i][0] == int(user_id) and users[i][4]):
@@ -52,6 +53,7 @@ while(True):
         if(not user_founded): print("Usuário não encontrado!\n")
         
         
+        # Alterando as informacoes
         print(sub_menu)
         opcao = input()
         if(opcao == '1'):
