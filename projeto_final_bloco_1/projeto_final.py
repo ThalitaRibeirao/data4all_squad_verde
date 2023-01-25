@@ -17,13 +17,13 @@ sub_menu = '''
 '''
 
 users = [
-    [1,"Ciclano Sauro",2345678,"Rua Boa",True],
-    [2,"Fulano Silva",3478358235,"Rua Top",True],
-    [3,"John Doe",3853385267,"MAIOBÃO",True],
-    [4, "Aline Carvalho", 32988427689, "Rua Roberto Thomazeli", True],
-    [5, "Felipe Cunha", 81998057401, "Rua General Polidoro", True],
-    [6, "Eduardo Vitor", 12988723166, "Rua Maria Pereira", True],
-    [7, "Thalita Silva", 11937523634, "Rua Domingos Maciel", True]
+    [1,"Ciclano Sauro",'2345678',"Rua Boa",True],
+    [2,"Fulano Silva",'3478358235',"Rua Top",True],
+    [3,"John Doe",'3853385267',"MAIOBÃO",True],
+    [4, "Aline Carvalho", '32988427689', "Rua Roberto Thomazeli", True],
+    [5, "Felipe Cunha", '81998057401', "Rua General Polidoro", True],
+    [6, "Eduardo Vitor", '12988723166', "Rua Maria Pereira", True],
+    [7, "Thalita Silva", '11937523634', "Rua Domingos Maciel", True]
 ]
 
 
@@ -44,41 +44,23 @@ while(True):
 
          #Inserindo as informações do novo usuário
 
-         new_user_nome = str(input('Insira o nome do usuário: '))
-         z = procura_no_sistema(new_user_nome, 1)
-
-         if z == True:
-           while z == True:
-             new_user_nome = str(input('Usuário já cadastrado no sistema, tente novamente: '))
-             z = procura_no_sistema(new_user_nome, 1)
+         while True:
+            new_user_nome = input('Insira o nome do usuário: ')
+            if not procura_no_sistema(new_user_nome, 1): break  
+            else: print('Usuário já cadastrado.\n ')
     
-         else:
-           pass
+         while True:
+            new_user_telefone = input('Insira o telefone do usuário: ')
+            if not procura_no_sistema(new_user_telefone, 2): 
+                if not new_user_telefone.isnumeric():
+                    print('Telefone Inválido.')
+                else: break
+            else: print('Telefone já cadastrado.\n')
 
-         new_user_telefone = int(input('Insira o telefone do usuário: '))
-         z = procura_no_sistema(new_user_telefone, 2)
-
-         if z == True:
-           while z == True:
-             new_user_telefone = int(input('telefone já cadastrado no sistema, tente novamente: '))
-             z = procura_no_sistema(new_user_telefone, 2)
-    
-         else:
-           pass
-
-         new_user_endereco = str(input('Insira o endereço do usuário: '))
-
-         #ID para o novo usuario
-         new_user_id0 = 0
-         for i in users:
-           if new_user_id0 <= i[0]:
-             new_user_id0 = i[0]
-           else:
-             pass
-         new_user_id = new_user_id0 + 1
-         
+         new_user_endereco = input('Insira o endereço do usuário: ')
+       
          #Adicionando novo usuário em users 
-         new_user_full = [new_user_id, new_user_nome, new_user_telefone, new_user_endereco, True]
+         new_user_full = [len(users)+1, new_user_nome, new_user_telefone, new_user_endereco, True]
          users.append(new_user_full)
          
     elif(opcao=='2'):
