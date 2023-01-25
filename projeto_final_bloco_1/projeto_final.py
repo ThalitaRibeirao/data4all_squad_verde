@@ -36,17 +36,21 @@ while(True):
     elif(opcao=='2'):
         pass
     elif(opcao=='3'):
-        repeat = True
-        
-        while(repeat):
+
+        while(True):
             print('Insira o ID do Usuário:')
             user_id = input()
-
-            for i in range(len(users)):
-                if (users[i][0] == int(user_id) and users[i][4]):
-                    repeat = False
-                    break
-            if(repeat): print("Usuário não encontrado!\n")
+            if(not user_id.isnumeric()):
+                print("Insira um ID válido")
+            else: break
+            
+        user_founded = False
+        for i in range(len(users)):
+            if (users[i][0] == int(user_id) and users[i][4]):
+                user_founded = True
+                break
+        if(not user_founded): print("Usuário não encontrado!\n")
+        
         
         print(sub_menu)
         opcao = input()
