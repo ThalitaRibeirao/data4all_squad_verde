@@ -32,7 +32,55 @@ while(True):
     opcao = input('> ')
     
     if(opcao=='1'):
-        pass
+         #Busca de dados x iguais em y id (0), nome(1), telefone(2)...
+         def procura_no_sistema(x, y):
+           for i in users:
+             if x == i[y]:
+               z = True
+               break
+             else:
+               z = False
+           return z
+
+         #Inserindo as informações do novo usuário
+
+         new_user_nome = str(input('Insira o nome do usuário: '))
+         z = procura_no_sistema(new_user_nome, 1)
+
+         if z == True:
+           while z == True:
+             new_user_nome = str(input('Usuário já cadastrado no sistema, tente novamente: '))
+             z = procura_no_sistema(new_user_nome, 1)
+    
+         else:
+           pass
+
+         new_user_telefone = int(input('Insira o telefone do usuário: '))
+         z = procura_no_sistema(new_user_telefone, 2)
+
+         if z == True:
+           while z == True:
+             new_user_telefone = int(input('telefone já cadastrado no sistema, tente novamente: '))
+             z = procura_no_sistema(new_user_telefone, 2)
+    
+         else:
+           pass
+
+         new_user_endereco = str(input('Insira o endereço do usuário: '))
+
+         #ID para o novo usuario
+         new_user_id0 = 0
+         for i in users:
+           if new_user_id0 <= i[0]:
+             new_user_id0 = i[0]
+           else:
+             pass
+         new_user_id = new_user_id0 + 1
+         
+         #Adicionando novo usuário em users 
+         new_user_full = [new_user_id, new_user_nome, new_user_telefone, new_user_endereco, True]
+         users.append(new_user_full)
+         
     elif(opcao=='2'):
         pass
     elif(opcao=='3'):
