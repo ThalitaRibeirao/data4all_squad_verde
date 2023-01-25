@@ -1,3 +1,21 @@
+def info_users():
+  while True:
+    id = int(input('Digite o ID do usuário: '))
+    found_user = None
+    for user in users:
+      if user[0] == id:
+        found_user = user
+        break
+    if found_user == None:
+      print('Usuário não encontrado.')
+    else:
+      print('')
+      print(f'Nome: {found_user[1]}')
+      print(f'Telefone: {found_user[2]}')  
+      print(f'Endereço: {found_user[3]}')
+      break     
+
+
 menu = '''
 \nBoas vindas ao nosso sistema:
 
@@ -38,11 +56,10 @@ while(True):
     elif(opcao=='3'):
         pass
     elif(opcao=='4'):
-        pass
+        info_users()
     elif(opcao=='5'):
         pass
     elif (opcao=='6'): break
     else:
         print("Digite uma opção válida!")
-
         
