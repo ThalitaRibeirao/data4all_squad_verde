@@ -39,7 +39,7 @@ while(True):
         # Recebendo o ID do Usuário
         while(True):
             user_id = input('Insira o ID do Usuário: ')
-            if(not user_id.isnumeric()): print("Insira um ID válido")
+            if(not user_id.isnumeric()): print("Insira um ID válido!")
             else: break
         
         # Encontrando o Usuário 
