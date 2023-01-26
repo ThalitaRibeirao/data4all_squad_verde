@@ -109,7 +109,18 @@ while(True):
             print('Digite uma opção válida!')
     
     elif(opcao=='4'):
-        pass
+        while True:
+            id = input('Digite o ID do usuário: ')
+            if id.isnumeric():
+                id = int(id)
+                if id < 1 or id > len(users) or not users[id-1][4]: print('Usuário não encontrado.')
+                else: 
+                    print(f'Nome: {users[id-1][1]}')
+                    print(f'Telefone: {users[id-1][2]}')  
+                    print(f'Endereço: {users[id-1][3]}')
+                    break   
+        
+
     elif(opcao=='5'):
         print('\nUsuários cadastrados\n')
         for user in users:
@@ -118,5 +129,3 @@ while(True):
     elif (opcao=='6'): break
     else:
         print('Digite uma opção válida!')
-
-        
