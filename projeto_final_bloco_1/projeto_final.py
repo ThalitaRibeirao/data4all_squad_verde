@@ -34,19 +34,17 @@ while(True):
     if(opcao=='1'):
         pass
     elif(opcao=='2'):
-        id_users = []
-        for user in users:
-            if(user[4]==True):
-                id_users.append(user[0])
-            
-        id_user_excluir = int(input('Por favor, digite o ID do usuário que deseja excluir: '))
-                
-        while(id_user_excluir not in id_users):
-            id_user_excluir = int(input('Usuário não encontrado!\nInsira o ID do usuário:'))                  
-        for user in users:
-            if(user[0] == id_user_excluir):
-                user[4] = False
-        print('Usuário excluído!')
+        while True:   
+            id_user_excluir = input('Por favor, digite o ID do usuário que deseja excluir: ')
+            if not id_user_excluir.isnumeric(): print('Digite um ID válido')
+            else:        
+                id_user_excluir = int(id_user_excluir)
+                if id_user_excluir < 1 or id_user_excluir > len(users) or not users[id_user_excluir-1][4]: print('Usuário não encontrado')
+                else:
+                    users[id_user_excluir-1][4] = False
+                    print('Usuário excluído!') 
+                    break
+
     elif(opcao=='3'):
         pass
     elif(opcao=='4'):
@@ -54,7 +52,7 @@ while(True):
     elif(opcao=='5'):
         print('\nUsuários cadastrados\n')
         for user in users:
-            if(user[4] == True):
+            if(user[4]):
                 print(f'ID: {user[0]}\nNome: {user[1]}\nTelefone: {user[2]}\nEndereço: {user[3]}\n\n')
     elif (opcao=='6'): break
     else:
