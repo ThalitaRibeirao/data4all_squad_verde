@@ -40,24 +40,33 @@ while(True):
         while(True):
             user_id = input('Insira o ID do Usuário: ')
             if(not user_id.isnumeric()): print("Insira um ID válido!")
-            else: break
-        
-        # Encontrando o Usuário 
-        user_founded = False
-        for i in range(len(users)):
-            if (users[i][0] == int(user_id) and users[i][4]):
-                user_founded = True
-                break
-        if(not user_founded): print("Usuário não encontrado!\n")
+            else: 
+                user_id = int(user_id)
+                if(user_id < 1 or user_id > len(users)): print("Insira um ID válido!")
+                elif(not users[user_id-1][4]): print("Usuário não encontrado!\n")
+                else: break
+    
         
         
         # Alterando as informacoes
-        print(sub_menu)
-        opcao = input()
+        opcao = input(sub_menu)
         if(opcao == '1'):
-            users[i][1] = input('Insira o nome: ')
+            while True:
+                new_user_nome= input('Insira o nome: ')
+                if not procura_no_sistema(new_user_nome, 1):
+                    users[i][1] = new_user_nome  
+                    break
+                else: print('Usuário já cadastrado.\n ')
         elif(opcao == '2'):
-            users[i][2] = input('Insira o telefone: ')
+            while True:
+                new_user_telefone = input('Insira o telefone: ')
+                if not procura_no_sistema(new_user_telefone, 2): 
+                    if not new_user_telefone.isnumeric():
+                        print('Telefone Inválido.')
+                    else: 
+                        users[i][2] = new_user_telefone        
+                else: print('Telefone já cadastrado.\n')
+            
         elif(opcao == '3'):
             users[i][3] = input('Insira o endereço: ')
         else: 
