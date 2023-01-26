@@ -26,24 +26,19 @@ users = [
     [7, "Thalita Silva", '11937523634', "Rua Domingos Maciel", True]
 ]
 
+#Busca de dados x iguais em y id (0), nome(1), telefone(2)...
+def procura_no_sistema(data, index):
+    for user in users:
+        if data == user[index]: return True
+    return False
 
 while(True): 
     print(menu)
     opcao = input('> ')
     
     if(opcao=='1'):
-         #Busca de dados x iguais em y id (0), nome(1), telefone(2)...
-         def procura_no_sistema(x, y):
-           for i in users:
-             if x == i[y]:
-               z = True
-               break
-             else:
-               z = False
-           return z
-
+        
          #Inserindo as informações do novo usuário
-
          while True:
             new_user_nome = input('Insira o nome do usuário: ')
             if not procura_no_sistema(new_user_nome, 1): break  
