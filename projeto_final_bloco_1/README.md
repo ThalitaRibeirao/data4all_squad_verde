@@ -1,7 +1,5 @@
-# Separação das atividades
-
-1 - Eduardo
-2 - Aline
-3 - Thalita
-4 - Felipe
-5 - Aline
+# Integrantes do Grupo:
+-  Aline Carvalho (Comando 2 e 5)
+- Eduardo Vitor (Comando 1)
+- Felipe Cunha (Comando 4)
+- Thalita Silva(Comando 3)
