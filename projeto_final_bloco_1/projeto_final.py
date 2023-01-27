@@ -1,3 +1,11 @@
+# Integrantes do Grupo:
+# Aline Carvalho
+# Eduardo Vitor
+# Felipe Cunha
+# Thalita Silva
+
+
+
 menu = '''
 \nBoas vindas ao nosso sistema:
 
